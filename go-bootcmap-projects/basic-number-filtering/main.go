@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+type Condition func(n int) bool
+
 func main() {
 	var input = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	fmt.Println(printOddPrime(input))
@@ -66,4 +68,36 @@ func isPrime(num int) bool {
 		}
 	}
 	return true
+}
+
+func filter(input []int, conditions ...Condition) []int {
+	var result []int
+	for _, number := range input {
+		matchCondtion := true
+		for _, condition := range conditions {
+			if !condition(number) {
+				matchCondtion = false
+			}
+		}
+		if matchCondtion {
+			result = append(result, number)
+		}
+	}
+	return result
+}
+
+func filterAny(input []int, conditions ...Condition) []int {
+	var result []int
+	for _, number := range input {
+		matchCondtion := false
+		for _, condition := range conditions {
+			if condition(number) {
+				matchCondtion = true
+			}
+		}
+		if matchCondtion {
+			result = append(result, number)
+		}
+	}
+	return result
 }
