@@ -7,7 +7,7 @@ import (
 
 func main() {
 	var input = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	fmt.Println(printPrime(input))
+	fmt.Println(printOddPrime(input))
 }
 
 func printEven(input []int) []int {
@@ -38,6 +38,19 @@ func printPrime(input []int) []int {
 
 		if isPrime(input[i]) {
 			output = append(output, input[i])
+		}
+	}
+	return output
+}
+
+func printOddPrime(input []int) []int {
+	i := 0
+	output := []int{}
+	for ; i < len(input); i++ {
+		if input[i]%2 != 0 {
+			if isPrime(input[i]) {
+				output = append(output, input[i])
+			}
 		}
 	}
 	return output
