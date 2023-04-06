@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
 type Condition func(n int) bool
 
-func main() {
-	var input = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	fmt.Println(printOddPrime(input))
-}
+// func main() {
+// 	var input = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+// 	fmt.Println(printOddPrime(input))
+// }
 
 func printEven(input []int) []int {
 	i := 0
